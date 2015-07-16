@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<title>Hayley's Happy Healthy Hounds | Dunedin Dog Walking</title>
-		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +16,8 @@
 					<nav>
 						<ul class="nav nav-pills pull-right">
 							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#">Testimonials &amp; Photos</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -26,8 +25,8 @@
 		<div class="container-fluid">
 			<section class="jumbotron">
 				<div class="container">
-					<h2>I'd love to exercise your best friend in a way you're comfortable with, using your commands and a form of exercise they prefer.</h2>
-					<button class="btn btn-lg btn-success">Contact Me!</button>
+					<h2><a href="#contact"><button id="contact-me" class="btn btn-lg btn-success"><span>Affordable, experienced dog walking services.</span></br>Sign your dog up today!</button></a></h2>
+					
 				</div>
 			</section>
 			<section class="row">
@@ -39,14 +38,14 @@
 						<footer>Jess, the Human and Jeff, the Border Collie</footer>
 					</blockquote>
 					
-					<a href="#">Read more testimonials >></a>
+					<a href="about.html#testimonials">Read more testimonials >></a>
 					<h3>Photos from our walks</h3>
 					<div class="row" id="walk-images">
 						<img class="col-md-4" src="images/walk1.jpg" alt=""/>
 						<img class="col-md-4" src="images/walk2.jpg" alt=""/>
 						<img class="col-md-4" src="images/walk3.jpg" alt=""/>
 					</div>
-					<a href="#">See more photos >></a>
+					<a href="about.html#photos">See more photos >></a>
 				</div>
 				<div id="prices"class="col-md-5">
 					<h3>Prices</h3>
@@ -64,13 +63,21 @@
 				</div>
 				
 			</section>
-			<div class="footer">
+		</div>
+		<div id="contact" class="footer">
+			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6"><p>&copy; 2015 Libby Riley Web Design</p></div>
-					<div class="col-md-6"><p>0278274200<p></div>
+					<div class="col-md-6 contact-info">
+						<h3>Contact Me</h3>
+						<h4><a href="mailto:hayley@example.co.nz">Email: hayley@example.co.nz</a></h4>
+						<h4><a href="tel:+64000000000">Call: +64000000000</a></h4>
+					</div>
+					<div class="col-md-6 copyright-info"><p>&copy; 2015 <a href="http://www.libbyriley.co">Libby Riley Web Design</a></p></div>
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>

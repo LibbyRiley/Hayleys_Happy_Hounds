@@ -27,3 +27,29 @@
     background-color: rgba(255, 255, 255, 0.5);
     line-height: 1.3em;
     padding: 20px 25px; }
+    .jumbotron h2 #contact-me {
+      width: 100%;
+      white-space: normal;
+      border: none; }
+
+.about-info {
+  overflow: hidden; }
+  .about-info #profile-image {
+    float: left;
+    width: 35%;
+    min-width: 200px;
+    margin-right: 20px;
+    margin-bottom: 10px; }
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0 50px 0;
+  margin-top: 50px; }
+  .footer .copyright-info {
+    margin-top: 20px;
+    color: gray;
+    font-style: italic;
+    text-align: right; }
+    .footer .copyright-info a {
+      color: gray; }
