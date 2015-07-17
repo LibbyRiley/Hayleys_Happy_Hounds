@@ -41,6 +41,27 @@
     margin-right: 20px;
     margin-bottom: 10px; }
 
+.testimonial-author {
+  cursor: pointer; }
+
+#testimonials {
+  margin-bottom: 25px; }
+
+.testimonial-quote p {
+  margin-top: 30px;
+  font-size: 1.3em;
+  line-height: 1.7em;
+  background-image: url("../images/quotemark.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding-left: 50px;
+  color: gray; }
+  .testimonial-quote p span {
+    display: block;
+    color: silver;
+    font-size: 0.9em;
+    font-style: italic; }
+
 .footer {
   background-color: #333;
   color: white;
