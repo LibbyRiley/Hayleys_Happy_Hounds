@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="site" lang="en">
 	<head>
 		<title>Hayley's Happy Healthy Hounds | Dunedin Dog Walking</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
 	</head>
-	<body>
+	<body ng-controller="infoController as info" ng-cloak>
 		<div class="container-fluid">
-				<div class="header clear-fix">
-					<div class="pull-left logo">
-						<h1>Hayley's Happy Healthy Hounds</h1>
-						<p>Experienced Dunedin Dog Walking Services</p>
-					</div>
-					<nav>
-						<ul class="nav nav-pills pull-right">
-							<li><a href="index.html">Home</a></li>
-							<li class="active"><a href="about.html">About</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</nav>
+			<div class="header clear-fix" ng-controller="headerController as header">
+				<div class="pull-left logo">
+					<h1><a href="{{header.headerLinks[0].url}}">{{header.headerLinks[0].content}}</a></h1>
+					<p>{{header.headerLinks[1].content}}</p>
 				</div>
+				<nav>
+					<ul class="nav nav-pills pull-right">
+						<li><a href="{{header.headerLinks[2].url}}">{{header.headerLinks[2].content}}</a></li>
+						<li class="active"><a href="{{header.headerLinks[3].url}}">{{header.headerLinks[3].content}}</a></li>
+						<li><a href="{{header.headerLinks[4].url}}">{{header.headerLinks[4].content}}</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 		<div class="container-fluid">
 			<div class="about-info">
@@ -29,20 +31,32 @@
 				<p class="lead"><img id="profile-image" src="images/walk3.jpg" alt="Hayley, an experienced dog walker."/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ducimus, blanditiis corrupti voluptatibus commodi sequi. Deserunt aliquam repudiandae culpa, quo neque officiis vel expedita! Modi doloremque, consequatur animi sint. </p>
 			</div>
 			<h3 id="testimonials">My clients say:</h3>
-			<div>
+			<div ng-init="tab = 1" ng-controller="PanelController as panel">
 				<nav>
 					<ul class="nav nav-tabs testimonial-authors">
-						<li class="testimonial-author active" data-author="John"><a><span class="fa fa-user"></span> John &amp;</br><span class="fa fa-paw"></span> Patches</a></li>
-						<li class="testimonial-author" data-author="Jane"><a><span class="fa fa-user"></span> Jane &amp;</br><span class="fa fa-paw"></span> Poppy</a></li>
-						<li class="testimonial-author" data-author="Joseph"><a><span class="fa fa-user"></span> Joseph &amp;</br><span class="fa fa-paw"></span> Penny</a></li>
-						<li class="testimonial-author" data-author="Jerome"><a><span class="fa fa-user"></span> Jerome &amp;</br><span class="fa fa-paw"></span> Pudding</a></li>
-						<li class="testimonial-author" data-author="Jackie"><a><span class="fa fa-user"></span> Jackie &amp;</br><span class="fa fa-paw"></span> Princess</a></li>
-						<li class="testimonial-author" data-author="Jessica"><a><span class="fa fa-user"></span> Jessica &amp;</br><span class="fa fa-paw"></span> Piglet</a></li>
+						<li class="testimonial-author" ng-click="panel.selectTab(1)"><a><span class="fa fa-user"></span> John &amp;</br><span class="fa fa-paw"></span> Patches</a></li>
+						<li class="testimonial-author" ng-click="panel.selectTab(2)"><a><span class="fa fa-user"></span> Jess &amp;</br><span class="fa fa-paw"></span> Princess</a></li>
+						<li class="testimonial-author" ng-click="panel.selectTab(3)"><a><span class="fa fa-user"></span> Jerome &amp;</br><span class="fa fa-paw"></span> Pickle</a></li>
+						<li class="testimonial-author" ng-click="panel.selectTab(4)"><a><span class="fa fa-user"></span> Jackie &amp;</br><span class="fa fa-paw"></span> Piglet</a></li>
+						<li class="testimonial-author" ng-click="panel.selectTab(5)"><a><span class="fa fa-user"></span> Joshua &amp;</br><span class="fa fa-paw"></span> Pip</a></li>
 					</ul>
 				</nav>
-				<div class="testimonial-quote">
-					<p data-author="john">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum ullam, sequi facilis ratione, perferendis explicabo repudiandae officia beatae obcaecati possimus quas fuga, laudantium est delectus ea consectetur, unde in. Nobis vero accusamus inventore id unde deleniti suscipit libero, et iusto."<span>- John &amp; Patches, Dunedin</span></p>
+				<div class="testimonial-quote" ng-show="panel.tab === 1">
+					<p>{{info.testimonials[0].said}}<span>- {{info.testimonials[0].owner}} &amp; {{info.testimonials[0].puppy}}, {{info.testimonials[0].location}}</span></p>
 				</div>
+				<div class="testimonial-quote" ng-show="panel.tab === 2">
+					<p>{{info.testimonials[1].said}}<span>- {{info.testimonials[1].owner}} &amp; {{info.testimonials[1].puppy}}, {{info.testimonials[1].location}}</span></p>
+				</div>
+				<div class="testimonial-quote" ng-show="panel.tab === 3">
+					<p>{{info.testimonials[2].said}}<span>- {{info.testimonials[2].owner}} &amp; {{info.testimonials[2].puppy}}, {{info.testimonials[2].location}}</span></p>
+				</div>
+				<div class="testimonial-quote" ng-show="panel.tab === 4">
+					<p>{{info.testimonials[3].said}}<span>- {{info.testimonials[3].owner}} &amp; {{info.testimonials[3].puppy}}, {{info.testimonials[3].location}}</span></p>
+				</div>
+				<div class="testimonial-quote" ng-show="panel.tab === 5">
+					<p>{{info.testimonials[4].said}}<span>- {{info.testimonials[4].owner}} &amp; {{info.testimonials[4].puppy}}, {{info.testimonials[4].location}}</span></p>
+				</div>
+
 			</div>
 			<h3 id="photos">Photos of our walks</h3>
 			<div class="row" id="walk-images">
@@ -63,6 +77,7 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
