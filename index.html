@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="site" lang="en">
 	<head>
 		<title>Hayley's Happy Healthy Hounds | Dunedin Dog Walking</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
 	</head>
-	<body>
+	<body ng-controller="infoController as info" ng-cloak>
 		<div class="container-fluid">
-				<div class="header clear-fix">
-					<div class="pull-left logo">
-						<h1>Hayley's Happy Healthy Hounds</h1>
-						<p>Experienced Dunedin Dog Walking Services</p>
-					</div>
-					<nav>
-						<ul class="nav nav-pills pull-right">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</nav>
+			<div class="header clear-fix" ng-controller="headerController as header">
+				<div class="pull-left logo">
+					<h1><a href="{{header.headerLinks[0].url}}">{{header.headerLinks[0].content}}</a></h1>
+					<p>{{header.headerLinks[1].content}}</p>
 				</div>
+				<nav>
+					<ul class="nav nav-pills pull-right">
+						<li class="active"><a href="{{header.headerLinks[2].url}}">{{header.headerLinks[2].content}}</a></li>
+						<li><a href="{{header.headerLinks[3].url}}">{{header.headerLinks[3].content}}</a></li>
+						<li><a href="{{header.headerLinks[4].url}}">{{header.headerLinks[4].content}}</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 		<div class="container-fluid">
 			<section class="jumbotron">
@@ -35,16 +37,16 @@
 					<h3>Types of Walks</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem numquam iure laudantium dolores harum temporibus nisi odio voluptatibus molestias magnam. Tenetur eligendi impedit ad rem officia deserunt dicta, aliquid maiores, sed provident non, odio porro sequi adipisci, similique dolore dolores.</p>
 					<h4>Our Happy Customers Say:</h4>
-					<blockquote>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem voluptatum nobis hic suscipit minima dolore dignissimos, fugit omnis ducimus tempore."
-						<footer>Jess, the Human and Jeff, the Border Collie</footer>
+					<blockquote>"{{info.testimonials[0].said}}"
+						<footer>{{info.testimonials[0].owner}}, the Human and {{info.testimonials[0].puppy}}, the Border Collie</footer>
 					</blockquote>
 					
 					<a href="about.html#testimonials">Read more testimonials >></a>
 					<h3>Photos from our walks</h3>
 					<div class="row" id="walk-images">
-						<img class="col-md-4" src="images/walk1.jpg" alt=""/>
-						<img class="col-md-4" src="images/walk2.jpg" alt=""/>
-						<img class="col-md-4" src="images/walk3.jpg" alt=""/>
+						<div ng-repeat="photo in info.photos | limitTo:3">
+							<img class="col-md-4" src="{{photo.url}}" alt="{{photo.alt}}"/>
+						</div>
 					</div>
 					<a href="about.html#photos">See more photos >></a>
 				</div>
@@ -77,6 +79,8 @@
 				</div>
 			</div>
 		</div>
+		
+		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
